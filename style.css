@@ -1,0 +1,78 @@
+body {
+  margin-left: 350px;
+  margin-right: 350px;
+}
+
+.container {
+  font-family: "Montserrat", sans-serif;
+  margin: 0 auto;
+  padding: 40px;
+  color: #fff;
+}
+.rounded {
+  margin-top: 10px;
+  padding-top: 30px;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
+  background-image: url(https://images.pexels.com/photos/572897/pexels-photo-572897.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+}
+form {
+  text-align: center;
+  padding: 10px;
+}
+.location {
+  text-align: center;
+  color: bisque;
+}
+.sun {
+  display: block;
+  margin: 0 auto;
+  width: 110px;
+}
+.city-name {
+  text-align: center;
+}
+h4,
+h6 {
+  text-align: center;
+}
+h6 {
+  font-size: small;
+}
+.col-6 {
+  font-size: small;
+}
+.text-center {
+  margin-top: 2.5%;
+  padding-top: 15px;
+}
+.wind,
+.humidity,
+.uv,
+.visibility {
+  color: #fff;
+}
+.row-cols-5 {
+  text-align: center;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  border: 1px solid #fff;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.2);
+}
+.day-temperature {
+  width: 50px;
+}
+#celsius {
+  border: 0px;
+  background: 0%;
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+}
+#fahrenheit {
+  border: 0px;
+  background: 0%;
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+}
