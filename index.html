@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,100;0,300;0,400;0,500;0,700;0,800;0,900;1,100;1,300;1,400;1,500;1,700;1,800;1,900&family=Amatic+SC&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Source+Code+Pro:wght@200&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="src/styles.css" />
+    <script
+      src="https://kit.fontawesome.com/f7b186c8cb.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>Homework Week 4</title>
+  </head>
+  <body>
+    <div class="container border rounded">
+      <div class="city">
+        <form id="searching-form">
+          <input
+            type="text"
+            placeholder="Enter city name"
+            autofocus="on"
+            autocomplete="off"
+            id="city-name"
+          />
+          <input
+            class="btn btn-dark"
+            type="submit"
+            value="Submit"
+            id="submit"
+          />
+        </form>
+        <div class="location">
+          <button id="location">
+            Your location <i class="fa-solid fa-location-crosshairs"></i>
+          </button>
+        </div>
+        <br /><br />
+        <div class="temperature-image">
+          <img src="image/sun.png" alt="sun" class="sun" />
+          <div class="temperature-city">
+            <h2 class="city-name" id="city-current">Évora</h2>
+            <h4>
+              <strong id="temperature">25</strong
+              ><button type="click" id="celsius">ºC</button
+              ><button type="click" id="fahrenheit">|ºF</button>
+            </h4>
+            <h6 id="date"></h6>
+            <h6 id="weather-main">Clear Sky</h6>
+          </div>
+        </div>
+        <div class="container text-center">
+          <div class="row">
+            <div class="col-3">
+              <span class="wind"><i class="fa-solid fa-wind"></i></span
+              ><span id="wind">17</span> m/s
+            </div>
+            <div class="col-3">
+              <span class="humidity"><i class="fa-solid fa-droplet"></i></span>
+              <span id="humidity">61</span>%
+            </div>
+            <div class="col-3">
+              <span class="uv"><i class="fa-regular fa-sun"></i></span
+              ><span id="pressure"> 2 </span> hPa
+            </div>
+            <div class="col-3">
+              <span class="visibility"><i class="fa-regular fa-eye"></i></span
+              ><span id="visibility">10</span> Km
+            </div>
+          </div>
+        </div>
+        <div class="container days">
+          <div class="row row-cols-5">
+            <div class="col monday-set">
+              <img
+                src="image/sun-clouds.png"
+                alt="sun with clouds"
+                class="day-temperature"
+              />
+              <div class="monday">
+                Monday
+                <div class="monday-temperature-max">
+                  <span><strong>29ºC</strong></span
+                  >|ºF
+                </div>
+                <div class="monday-temperature-min">
+                  <span><strong>17ºC</strong></span
+                  >|ºF
+                </div>
+              </div>
+            </div>
+            <div class="col tuesday-set">
+              <img src="image/sun.png" alt="sun" class="day-temperature" />
+              <div class="tuesday">
+                Tuesday
+                <div class="tuesday-temperature-max">
+                  <span><strong>24ºC</strong></span
+                  >|ºF
+                </div>
+                <div class="tuesday-temperature-min">
+                  <span><strong>18ºC</strong></span
+                  >|ºF
+                </div>
+              </div>
+            </div>
+            <div class="col wednesday">
+              <div class="col wednesday-set">
+                <img
+                  src="image/sun-clouds.png"
+                  alt="sun with clouds"
+                  class="day-temperature"
+                />
+                <div class="wednesday">
+                  Wednesday
+                  <div class="wednesday-temperature-max">
+                    <span><strong>24ºC</strong></span
+                    >|ºF
+                  </div>
+                  <div class="wednesday-temperature-min">
+                    <span><strong>17ºC</strong></span
+                    >|ºF
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col thursday-set">
+              <img src="image/rain.png" alt="rain" class="day-temperature" />
+              <div class="thursday">
+                Thursday
+                <div class="thursday-temperature-max">
+                  <span><strong>22ºC</strong></span
+                  >|ºC
+                </div>
+                <div class="thursday-temperature-min">
+                  <span><strong>15ºC</strong></span
+                  >|ºF
+                </div>
+              </div>
+            </div>
+            <div class="col friday-set">
+              <img src="image/rain.png" alt="rain" class="day-temperature" />
+              <div class="friday">
+                Friday
+                <div class="friday-temperature-max">
+                  <span><strong>20ºC</strong></span
+                  >|ºF
+                </div>
+                <div class="friday-temperature-min">
+                  <span><strong>14ºC</strong></span
+                  >|ºF
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="src/index.js"></script>
+  </body>
+</html>
