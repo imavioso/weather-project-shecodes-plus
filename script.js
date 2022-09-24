@@ -1,4 +1,3 @@
-//Date
 let now = new Date();
 let currentDate = document.querySelector("#date");
 let hour = now.getHours();
