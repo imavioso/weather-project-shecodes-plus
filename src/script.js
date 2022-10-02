@@ -42,6 +42,7 @@ function displayWeather(response) {
     "src",
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
+  celsiusTemperature = response.data.main.temp;
 }
 
 function city(event) {
@@ -60,23 +61,28 @@ function city(event) {
 let form = document.querySelector("#submit");
 form.addEventListener("click", city);
 
-//Temperature
-function celsiusConvert(event) {
-  event.preventDefault();
-  let cel = document.querySelector("#temperature");
-  cel.innerHTML = 22;
-}
+//Temperature//
 function fahrenheitConvert(event) {
   event.preventDefault();
-  let fah = document.querySelector("#temperature");
-  fah.innerHTML = Math.round(22 * 1.8 + 32);
+  let fah = celsiusTemperature * 1.8 + 32;
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(fah);
 }
+
+function celsiusConvert(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+let celsiusTemperature = null;
 
 let celsius = document.querySelector("#celsius");
 celsius.addEventListener("click", celsiusConvert);
 let fahrenheit = document.querySelector("#fahrenheit");
 fahrenheit.addEventListener("click", fahrenheitConvert);
 
+//
 function searchLocation(position) {
   let apiKey = "b3575525466decb09d8082ab1a0c7f6b";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
