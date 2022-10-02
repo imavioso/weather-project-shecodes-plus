@@ -69,7 +69,7 @@ function celsiusConvert(event) {
 function fahrenheitConvert(event) {
   event.preventDefault();
   let fah = document.querySelector("#temperature");
-  fah.innerHTML = 22 * 1.8 + 32;
+  fah.innerHTML = Math.round(22 * 1.8 + 32);
 }
 
 let celsius = document.querySelector("#celsius");
