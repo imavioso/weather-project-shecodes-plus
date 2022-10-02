@@ -23,7 +23,7 @@ currentDate.innerHTML = `${day}, ${hour}:${minute}`;
 
 //Search Engine
 function displayWeather(response) {
-  console.log(response.data);
+  //console.log(response.data);
   document.querySelector(".city-name").innerHTML = response.data.name;
   document.querySelector("#temperature").innerHTML = Math.round(
     response.data.main.temp
