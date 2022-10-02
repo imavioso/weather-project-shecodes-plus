@@ -2,6 +2,9 @@ let now = new Date();
 let currentDate = document.querySelector("#date");
 let hour = now.getHours();
 let minute = now.getMinutes();
+if (minutes < 10) {
+  minutes = `0${minute}`;
+}
 let days = [
   "Sunday",
   "Monday",
@@ -17,7 +20,7 @@ currentDate.innerHTML = `${day}, ${hour}:${minute}`;
 
 //Search Engine
 function displayWeather(response) {
-  //console.log(response.data);
+  console.log(response.data);
   document.querySelector(".city-name").innerHTML = response.data.name;
   document.querySelector("#temperature").innerHTML = Math.round(
     response.data.main.temp
