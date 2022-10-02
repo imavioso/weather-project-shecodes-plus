@@ -2,8 +2,8 @@ let now = new Date();
 let currentDate = document.querySelector("#date");
 let hour = now.getHours();
 let minute = now.getMinutes();
-if (minutes < 10) {
-  minutes = `0${minute}`;
+if (minute < 10) {
+  minute = `0${minute}`;
 }
 let days = [
   "Sunday",
