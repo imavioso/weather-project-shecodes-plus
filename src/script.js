@@ -23,7 +23,7 @@ currentDate.innerHTML = `${day}, ${hour}:${minute}`;
 
 //Search Engine
 function displayWeather(response) {
-  //console.log(response.data);
+  console.log(response.data);
   document.querySelector(".city-name").innerHTML = response.data.name;
   document.querySelector("#temperature").innerHTML = Math.round(
     response.data.main.temp
@@ -37,6 +37,11 @@ function displayWeather(response) {
     response.data.visibility / 1000;
   document.querySelector("#weather-main").innerHTML =
     response.data.weather[0].main;
+  let iconElement = document.querySelector(".sun");
+  iconElement.setAttribute(
+    "src",
+    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 }
 
 function city(event) {
