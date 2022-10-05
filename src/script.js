@@ -21,7 +21,38 @@ let day = days[now.getDay()];
 let date = now.getDate();
 currentDate.innerHTML = `${day}, ${hour}:${minute}`;
 
-//Search Engine
+//Forecast//
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+  let days = ["Thursday", "Friday", "Saturday", "Sunday"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+    <div class="col-2">
+       <div class="weather-forecast-date">
+          ${day}</div>
+        <img
+          src="https://openweathermap.org/img/wn/01d@2x.png"
+          alt=""
+          class="day-temperature"
+        />
+        <div class="weather-forecast-temperature">
+            <span class="weather-temperature-max"><strong>29º</strong></span
+            > | 
+            <span class="weather-temperature-min">17º</span>
+        </div>
+    </div>
+    `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
+//Search Engine//
 function displayWeather(response) {
   console.log(response.data);
   document.querySelector(".city-name").innerHTML = response.data.name;
@@ -82,7 +113,7 @@ celsius.addEventListener("click", celsiusConvert);
 let fahrenheit = document.querySelector("#fahrenheit");
 fahrenheit.addEventListener("click", fahrenheitConvert);
 
-//
+//Your Location//
 function searchLocation(position) {
   let apiKey = "b3575525466decb09d8082ab1a0c7f6b";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
@@ -96,3 +127,5 @@ function displayLocation(event) {
 
 let yourLocationButton = document.querySelector("#location");
 yourLocationButton.addEventListener("click", displayLocation);
+
+displayForecast();

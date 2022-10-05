@@ -53,8 +53,9 @@ h6 {
 .visibility {
   color: #fff;
 }
-.row-cols-5 {
+#forecast {
   text-align: center;
+  margin: 0 auto;
   padding-top: 25px;
   padding-bottom: 25px;
   border: 1px solid #fff;
