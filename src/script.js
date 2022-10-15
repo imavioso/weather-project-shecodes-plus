@@ -21,31 +21,55 @@ let day = days[now.getDay()];
 let date = now.getDate();
 currentDate.innerHTML = `${day}, ${hour}:${minute}`;
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+
+  return days[day];
+}
+
 //Forecast//
-function displayForecast() {
+function displayForecast(response) {
+  let forecast = response.data.daily;
+
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row">`;
-  let days = ["Thursday", "Friday", "Saturday", "Sunday", "Monday"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `
     <div class="col">
        <div class="weather-forecast-date">
-          ${day}</div>
+          ${formatDay(forecastDay.dt)}</div>
         <img
-          src="https://openweathermap.org/img/wn/01d@2x.png"
+          src="https://openweathermap.org/img/wn/${
+            forecastDay.weather[0].icon
+          }@2x.png"
           alt=""
-          class="day-temperature"
+          width="42"
         />
         <div class="weather-forecast-temperature">
-            <span class="weather-temperature-max"><strong>29º</strong></span
-            > | 
-            <span class="weather-temperature-min">17º</span>
+            <span class="weather-temperature-max"><strong>${Math.round(
+              forecastDay.temp.max
+            )}º</strong></span>
+            <span class="weather-temperature-min">${Math.round(
+              forecastDay.temp.min
+            )}º</span>
         </div>
     </div>
     `;
+    }
   });
 
   forecastHTML = forecastHTML + `</div>`;
@@ -85,7 +109,6 @@ function displayWeather(response) {
   celsiusTemperature = response.data.main.temp;
 
   getForecast(response.data.coord);
-  //images//
 }
 
 function city(event) {
@@ -139,5 +162,3 @@ function displayLocation(event) {
 
 let yourLocationButton = document.querySelector("#location");
 yourLocationButton.addEventListener("click", displayLocation);
-
-displayForecast();
