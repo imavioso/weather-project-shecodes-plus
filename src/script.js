@@ -127,26 +127,7 @@ function city(event) {
 let form = document.querySelector("#submit");
 form.addEventListener("click", city);
 
-//Temperature//
-function fahrenheitConvert(event) {
-  event.preventDefault();
-  let fah = celsiusTemperature * 1.8 + 32;
-  let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = Math.round(fah);
-}
-
-function celsiusConvert(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = Math.round(celsiusTemperature);
-}
-
-let celsiusTemperature = null;
-
-let celsius = document.querySelector("#celsius");
-celsius.addEventListener("click", celsiusConvert);
-let fahrenheit = document.querySelector("#fahrenheit");
-fahrenheit.addEventListener("click", fahrenheitConvert);
+//Temperature - removed//
 
 //Your Location//
 function searchLocation(position) {
